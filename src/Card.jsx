@@ -1,7 +1,9 @@
-function Card ({ question, answer, isFlipped, onFlip }) {
+function Card ({ question, answer, isFlipped, onFlip , category }) {
   return (
 
-    <div className="card" onClick={onFlip}>
+    <div className={`card  ${category}`} onClick={onFlip}>
+      
+      <p className="category">{category}</p>
       {isFlipped ? answer : question}
     </div>
   );

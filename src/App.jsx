@@ -29,6 +29,7 @@ function App() {
   answer={currentCard.answer}
   isFlipped={isFlipped}
   onFlip={handleFlip}
+  category={currentCard.category}
 />
       <button onClick={handleNext}>Next →</button>
     </div>

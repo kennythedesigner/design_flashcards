@@ -26,3 +26,22 @@ button {
   cursor: pointer;
 }
 
+.category {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom:  16px;
+  opacity: 0.8;
+}
+
+.Easy {
+  border-color: #4ade80;
+}
+
+.Medium {
+  border-color: #facc15;
+}
+
+.Hard {
+  border-color: #e76767;
+}
