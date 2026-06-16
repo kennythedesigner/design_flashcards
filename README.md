@@ -1,6 +1,6 @@
-# Web Development Project 2 - *Name of App Here*
+# Web Development Project 2 - *Design and UX Flashcards*
 
-Submitted by: **Design and UX Flashcards**
+Submitted by: **Kennedi Cosma**
 
 This web app: **teaches users design and ux terms ranging from easy to hard.**
 
