@@ -1,4 +1,4 @@
-# Web Development Project 2 - *Design and UX Flashcards*
+# Web Development Project 3 - *Design and UX Flashcards*
 
 Submitted by: **Kennedi Cosma**
 
