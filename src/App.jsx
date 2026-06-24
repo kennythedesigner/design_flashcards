@@ -8,7 +8,12 @@ function App() {
   const [isFlipped, setIsFlipped] = useState(false)
 
   const currentCard = cards[currentIndex]
-
+  
+  const [guess, setGuess] = useState("");
+  
+  const [feedback, setFeedback] = useState("")
+  
+  
   function handleFlip() {
     setIsFlipped(!isFlipped)
   }
@@ -25,6 +30,16 @@ function App() {
       setIsFlipped(false);
     }
   }
+  function handleGuess() {
+    const correct = currentCard.answer.toLowerCase();
+    const userGuess = guess.toLowerCase();
+
+    if (userGuess === correct) {
+      setFeedback("correct");
+    } else {
+      setFeedback("incorrect");
+    }
+  }
 
   return (
     <div>
@@ -38,9 +53,20 @@ function App() {
   onFlip={handleNext}
   category={currentCard.category}
 />
+<div className={`feedback ${feedback}`}>
+  {feedback === "correct" && "Correct!"}
+  {feedback === "incorrect" && "Incorrect!"}
+</div>
+<div className='guess-box'>
+  <input
+    type="text"
+    placeholder="Type your guess..."
+    value={guess}
+    onChange={(e) => setGuess(e.target.value)}
+  />
+  <button onClick={handleGuess}>Submit</button>
+</div>
 <div className="buttons">
-
-
       <button onClick={handleBack} disabled={currentIndex === 0}> ← Back </button>
       <button onClick={handleNext} disabled={currentIndex === cards.length -  1}> Next→ </button>
       </div>
