@@ -41,17 +41,4 @@ button:disabled {
 .buttons {
   display: flex;
   gap: 16px;
-  justify-content: center;
-}
-
-.Easy {
-  border-color: #4ade80;
-}
-
-.Medium {
-  border-color: #facc15;
-}
-
-.Hard {
-  border-color: #e76767;
-}
+  justif

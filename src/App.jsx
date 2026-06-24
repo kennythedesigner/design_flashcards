@@ -3,11 +3,12 @@ import { useState } from "react";
 import cards from "./data";
 import Card  from './Card';
 
+
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
-
-  const currentCard = cards[currentIndex]
+  const [deck, setDeck] = useState(cards);
+  const currentCard = deck[currentIndex]
   
   const [guess, setGuess] = useState("");
   
@@ -19,7 +20,7 @@ function App() {
   }
 
   function handleNext() {
-    if (currentIndex < cards.length - 1) {
+    if (currentIndex < deck.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setIsFlipped(false)
     }
@@ -29,6 +30,14 @@ function App() {
       setCurrentIndex(currentIndex - 1);
       setIsFlipped(false);
     }
+  }
+  function handleShuffle() {
+    const shuffled = [...deck].sort(() => Math.random() - 0.5);
+    setDeck(shuffled);
+    setCurrentIndex(0);
+    setIsFlipped(false);
+    setFeedback("");
+    setGuess("");
   }
   function handleGuess() {
     const correct = currentCard.answer.toLowerCase();
@@ -68,7 +77,8 @@ function App() {
 </div>
 <div className="buttons">
       <button onClick={handleBack} disabled={currentIndex === 0}> ← Back </button>
-      <button onClick={handleNext} disabled={currentIndex === cards.length -  1}> Next→ </button>
+      <button onClick={handleNext} disabled={currentIndex === deck.length -  1}> Next→ </button>
+      <button onClick={handleShuffle}>🔀 Shuffle</button>
       </div>
     </div>
   )
