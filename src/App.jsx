@@ -14,9 +14,16 @@ function App() {
   }
 
   function handleNext() {
-    const randomIndex = Math.floor(Math.random() * cards.length)
-    setCurrentIndex(randomIndex)
-    setIsFlipped(false)
+    if (currentIndex < cards.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setIsFlipped(false)
+    }
+  }
+  function handleBack () {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      setIsFlipped(false);
+    }
   }
 
   return (
@@ -28,10 +35,15 @@ function App() {
   question={currentCard.question}
   answer={currentCard.answer}
   isFlipped={isFlipped}
-  onFlip={handleFlip}
+  onFlip={handleNext}
   category={currentCard.category}
 />
-      <button onClick={handleNext}>Next →</button>
+<div className="buttons">
+
+
+      <button onClick={handleBack} disabled={currentIndex === 0}> ← Back </button>
+      <button onClick={handleNext} disabled={currentIndex === cards.length -  1}> Next→ </button>
+      </div>
     </div>
   )
 }
